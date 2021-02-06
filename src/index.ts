@@ -39,7 +39,6 @@ export class DbShellHelper {
         }else{
             console.log("🚀 ~ execQuery 执行查询语句", queryString);
         }
-        
         let query = prefix + '"' + queryString + '"';
         shelljs.exec(query);
     }

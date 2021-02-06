@@ -32,6 +32,7 @@ export interface dbQueryOptions {
     queryString?: string;
     data?: any[];
     file?: string;
+    filepath?: string;
 }
 
 export interface DbBaseOptions {
