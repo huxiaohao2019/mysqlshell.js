@@ -28,14 +28,19 @@ export class DbShellHelper {
      */
     execSqlString(options: dbQueryOptions) {
         let { host, port, user, password } = this.dbServer;
-        let { database } = this;
-        if (!database) {
-            console.log('未指定数据库');
+        let database = this.database || this.dbServer.database;
+
+        let prefix = `mysql -h ${host} -P ${port} -u${user} -p${password} -e ;use ${database};`;
+
+        let { queryString } = options;
+        if (!queryString) {
+            console.log('查询语句为空');
             return;
+        }else{
+            console.log("🚀 ~ execQuery 执行查询语句", queryString);
         }
-        let queryPrefix = `mysql -h ${host} -P ${port} -u${user} -p${password} -e ;use ${database};`;
-        let query = queryPrefix + '"' + options.queryString + '"';
-        console.log("🚀 ~ execQuery 执行查询语句 ~ options.queryString", options.queryString);
+        
+        let query = prefix + '"' + queryString + '"';
         shelljs.exec(query);
     }
 

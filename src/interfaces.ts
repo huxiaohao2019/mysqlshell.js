@@ -27,19 +27,11 @@ export interface ConnectionOptions {
     port?: number;
 }
 
-export interface wsConfig {
-    host: string;
-    port: number | string;
-    Authorization: string;
-}
 
 export interface dbQueryOptions {
-    dbServer: ConnectionOptions;
-    database?: string;
     queryString?: string;
     data?: any[];
     file?: string;
-    filepath?: string;
 }
 
 export interface DbBaseOptions {
