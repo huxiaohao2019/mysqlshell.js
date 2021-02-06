@@ -15,10 +15,21 @@
     "database",
     "shell"
   ],
+  "files": [
+    "index.js"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/huxiaohao2019/mysqlshell.js/issues"
   },
-  "homepage": "https://github.com/huxiaohao2019/mysqlshell.js#readme"
+  "homepage": "https://github.com/huxiaohao2019/mysqlshell.js#readme",
+  "devDependencies": {
+    "@types/mysql": "^2.15.17",
+    "@types/node": "^14.14.25",
+    "@types/shelljs": "^0.8.8"
+  },
+  "dependencies": {
+    "shelljs": "^0.8.4"
+  }
 }
