@@ -1,0 +1,24 @@
+{
+  "name": "mysqlshell.js",
+  "version": "1.0.0",
+  "description": "use shelljs to operate mysql, support javascript/typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huxiaohao2019/mysqlshell.js.git"
+  },
+  "keywords": [
+    "mysql",
+    "database",
+    "shell"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huxiaohao2019/mysqlshell.js/issues"
+  },
+  "homepage": "https://github.com/huxiaohao2019/mysqlshell.js#readme"
+}
