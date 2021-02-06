@@ -38,8 +38,8 @@ export declare class DbShellHelper {
      * @memberof DbQueryBase
      */
     importSqlFile(options: DbImportOptions): void;
-    checkDbServer(): void;
-    checkDatabase(): void;
+    private checkDbServer;
+    private checkDatabase;
 }
 interface exportDbOptions {
     tables?: string | string[];

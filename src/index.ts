@@ -36,7 +36,7 @@ export class DbShellHelper {
         if (!queryString) {
             console.log('查询语句为空');
             return;
-        }else{
+        } else {
             console.log("🚀 ~ execQuery 执行查询语句", queryString);
         }
         let query = prefix + '"' + queryString + '"';
@@ -163,14 +163,14 @@ export class DbShellHelper {
 
 
 
-    checkDbServer() {
+    private checkDbServer() {
         if (!this.dbServer) {
             console.log('未指定数据库连接配置');
             process.exit();
         }
     }
 
-    checkDatabase() {
+    private checkDatabase() {
         if (!this.database) {
             console.log('未指定要操作的数据库');
             process.exit();
