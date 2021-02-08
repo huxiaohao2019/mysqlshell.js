@@ -112,11 +112,13 @@ export class DbShellHelper {
         console.log();
     }
 
+     
     /**
      * 导入数据库/数据表
      *
-     * @param {dbQueryOptions} options
-     * @memberof DbQueryBase
+     * @param {DbImportOptions} options
+     * @return {*} 
+     * @memberof DbShellHelper
      */
     importSqlFile(options: DbImportOptions) {
         console.log("🚀 ~ 导入文件");

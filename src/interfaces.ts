@@ -35,19 +35,14 @@ export interface dbQueryOptions {
     filepath?: string;
 }
 
-export interface DbBaseOptions {
-    dbServer: ConnectionOptions;
-    database?: string;
+export interface DbExecSqlFileOptions {
+    filepath?: string;
+    [propName: string]: any;
 }
 
 export interface DbImportOptions {
     autoRemoveFile?: boolean;
     filepath?: string;
-}
-
-export interface DbExecSqlFileOptions {
-    filepath?: string;
-    [propName: string]: any;
 }
 
 export interface exportDbOptions {
