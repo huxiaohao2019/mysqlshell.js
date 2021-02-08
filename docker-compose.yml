@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+    mysql-db:
+        image: mysql
+        container_name: mysqlshell-db
+        volumes:
+            - ./db-data:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: example
+            MYSQL_DATABASE: db01
+        ports:
+          - 6520:3306

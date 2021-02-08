@@ -27,10 +27,9 @@ export class DbShellHelper {
      * 
      */
     execSqlString(options: dbQueryOptions) {
-        let { host, port, user, password } = this.dbServer;
-        let database = this.database || this.dbServer.database;
+        let { host, port, user, password, database } = this.dbServer;
 
-        let prefix = `mysql -h ${host} -P ${port} -u${user} -p${password} -e ;use ${database};`;
+        let prefix = `mysql -h ${host} -P ${port} -u${user} -p${password} -e "use ${database};`;
 
         let { queryString } = options;
         if (!queryString) {
@@ -39,8 +38,11 @@ export class DbShellHelper {
         } else {
             console.log("🚀 ~ execQuery 执行查询语句", queryString);
         }
-        let query = prefix + '"' + queryString + '"';
-        shelljs.exec(query);
+        let query = prefix + queryString + '"';
+        console.log("🚀 ~ execSqlString ~ query", query);
+        let res = shelljs.exec(query);
+
+
     }
 
     /**
@@ -50,12 +52,12 @@ export class DbShellHelper {
      * @memberof DbQueryBase
      */
     execSqlFile(options: DbExecSqlFileOptions) {
-        this.checkDbServer();
-        this.checkDatabase();
-        let { dbServer, database } = this;
-        let { host, port, user, password } = dbServer;
-        console.log("🚀 ~ execSqlFile ~ port", port);
+        // this.checkDbServer();
+        // this.checkDatabase();
+        let { dbServer } = this;
+        let { database, host, port, user, password } = dbServer;
         console.log("🚀 ~ execSqlFile ~ host", host);
+        console.log("🚀 ~ execSqlFile ~ port", port);
         let { filepath } = options;
         if (!filepath) {
             console.log('请指定要执行的文件');
@@ -65,7 +67,10 @@ export class DbShellHelper {
             + ` ${database || ''} <${filepath}`;
 
         console.log("🚀 ~ execSqlFile 执行sql文件~ filepath", filepath);
-        shelljs.exec(query);
+        console.log();
+
+        let res = shelljs.exec(query);
+        console.log(res.stdout);
     }
 
 
