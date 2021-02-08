@@ -16,7 +16,8 @@
     "shell"
   ],
   "files": [
-    "dist/"
+    "dist/*.js",
+    "dist/*.d.ts"
   ],
   "author": "",
   "license": "ISC",
