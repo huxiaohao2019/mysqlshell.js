@@ -1,6 +1,6 @@
 # mysqlshell.js
 
-`
+```javascript
 
     import { db01COnfig } from "./appConfig";
     import { DbShellHelper } from '../dist/index'
@@ -39,10 +39,4 @@
         app.importSqlFile(options)
     }
     importDb();
-`
-
-`
-    
-
-
-`
+```
