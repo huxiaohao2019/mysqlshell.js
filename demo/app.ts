@@ -7,18 +7,17 @@ app.dbServer = db01COnfig;
 
 function execFile() {
     app.execSqlFile({
-        filepath: `${__dirname}/demo.sql`
+        filepath: `${__dirname}/tb_demo.sql`
     })
 }
-// execFile();
+execFile();
 
 function execString() {
     app.execSqlString({
-        // queryString:'insert into tb_demo values (2, "1", "1");'
         queryString: 'delete from tb_demo;'
     });
 }
-// execString();
+execString();
 
 function exportDb() {
     let options: DbExportOptions = {
@@ -27,14 +26,13 @@ function exportDb() {
     }
     app.exportDb(options);
 }
-// exportDb();
+exportDb();
 
 function importDb() {
-    let options: DbImportOptions={
-        filepath:`${__dirname}/tb_demo.sql`
+    let options: DbImportOptions = {
+        filepath: `${__dirname}/tb_demo.sql`
     }
     app.importSqlFile(options)
 }
-
 importDb();
 

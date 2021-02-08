@@ -1,5 +1,9 @@
 import shelljs = require('shelljs');
-import { ConnectionOptions, DbExecSqlFileOptions, DbImportOptions, DbExecSqlStringOptions, DbExportOptions } from "./interfaces";
+import {
+    ConnectionOptions, DbExecSqlFileOptions,
+    DbImportOptions, DbExecSqlStringOptions,
+    DbExportOptions
+} from "./interfaces";
 import fs = require('fs');
 
 /**
@@ -20,22 +24,17 @@ export class DbShellHelper {
      * 
      */
     execSqlString(options: DbExecSqlStringOptions) {
+        this.checkDbServer();
         let { host, port, user, password, database } = this.dbServer;
-
         let prefix = `mysql -h ${host} -P ${port} -u${user} -p${password} -e "use ${database};`;
-
         let { queryString } = options;
         if (!queryString) {
             console.log('查询语句为空');
             return;
-        } else {
-            console.log("🚀 ~ execQuery 执行查询语句", queryString);
         }
+        console.log("🚀 ~ execQuery 执行查询语句", queryString);
         let query = prefix + queryString + '"';
-        console.log("🚀 ~ execSqlString ~ query", query);
-        let res = shelljs.exec(query);
-
-
+        shelljs.exec(query);
     }
 
 
@@ -47,12 +46,9 @@ export class DbShellHelper {
      * @memberof DbShellHelper
      */
     execSqlFile(options: DbExecSqlFileOptions) {
-        // this.checkDbServer();
-        // this.checkDatabase();
-        let { dbServer } = this;
-        let { database, host, port, user, password } = dbServer;
-        console.log("🚀 ~ execSqlFile ~ host", host);
-        console.log("🚀 ~ execSqlFile ~ port", port);
+        console.log('执行sql文件');
+        this.checkDbServer();
+        let { database, host, port, user, password } = this.dbServer;
         let { filepath } = options;
         if (!filepath) {
             console.log('请指定要执行的文件');
@@ -113,7 +109,7 @@ export class DbShellHelper {
         console.log();
     }
 
-     
+
     /**
      * 导入数据库/数据表
      *
@@ -126,8 +122,6 @@ export class DbShellHelper {
         this.checkDbServer();
 
         let { host, port, user, password, database } = this.dbServer;
-        console.log("🚀 ~ importSqlFile ~ host", host);
-        console.log("🚀 ~ importSqlFile ~ port", port);
         let { filepath, autoRemoveFile } = options;
         if (!filepath) {
             console.log('请指定要导入的文件');
@@ -156,6 +150,9 @@ export class DbShellHelper {
             console.log('未指定数据库连接配置');
             process.exit();
         }
+        let { host, port } = this.dbServer;
+        console.log("🚀 ~ checkDbServer ~ port", port);
+        console.log("🚀 ~ checkDbServer ~ host", host);
     }
 }
 
