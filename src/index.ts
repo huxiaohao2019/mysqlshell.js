@@ -1,10 +1,3 @@
-/*
- * @Author: hujuran 
- * @Date: 2021-02-04 07:36:41 
- * @Last Modified by: hujuran
- * @Last Modified time: 2021-02-04 10:50:22
- */
-
 import shelljs = require('shelljs');
 import { ConnectionOptions, DbExecSqlFileOptions, DbImportOptions, dbQueryOptions, exportDbOptions } from "./interfaces";
 import fs = require('fs');
@@ -161,6 +154,5 @@ export class DbShellHelper {
             process.exit();
         }
     }
-
 }
 
