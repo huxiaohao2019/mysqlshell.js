@@ -6,7 +6,7 @@
  */
 
 import shelljs = require('shelljs');
-import { ConnectionOptions, DbExecSqlFileOptions, DbImportOptions, dbQueryOptions } from "./interfaces";
+import { ConnectionOptions, DbExecSqlFileOptions, DbImportOptions, dbQueryOptions, exportDbOptions } from "./interfaces";
 import fs = require('fs');
 
 /**
@@ -90,14 +90,7 @@ export class DbShellHelper {
             console.log('文件路径为空');
             return;
         }
-        if (!dbServer) {
-            console.log('no dbserver');
-            return;
-        }
-        if (!this.database) {
-            console.log('未指定数据库');
-            return;
-        }
+        this.checkDbServer();
         let tableListStr = '';
         if (typeof options.tables == 'string') {
             tableListStr = options.tables;
@@ -114,10 +107,9 @@ export class DbShellHelper {
         console.log("🚀 ~ 准备导出 ~ tableListStr", tableListStr);
         console.log();
 
-        let { host, port, user, password } = this.dbServer;
+        let { host, port, user, password, database } = this.dbServer;
         console.log("🚀 ~ exportDb ~ host", host);
         console.log("🚀 ~ exportDb ~ port", port);
-        let { database } = this;
 
 
         let query = `mysqldump -h ${host} -P ${port} -u${user} -p${password} `
@@ -134,14 +126,10 @@ export class DbShellHelper {
      * @memberof DbQueryBase
      */
     importSqlFile(options: DbImportOptions) {
-        console.log("🚀 ~ importSqlFile ~ importSqlFile", '导入文件');
+        console.log("🚀 ~ 导入文件");
         this.checkDbServer();
-        this.checkDatabase();
 
-        let { dbServer, database } = this;
-        console.log("🚀 ~ importSqlFile ~ database", database);
-
-        let { host, port, user, password } = dbServer;
+        let { host, port, user, password, database } = this.dbServer;
         console.log("🚀 ~ importSqlFile ~ host", host);
         console.log("🚀 ~ importSqlFile ~ port", port);
         let { filepath, autoRemoveFile } = options;
@@ -161,9 +149,8 @@ export class DbShellHelper {
         if (autoRemoveFile) {
             fs.rmSync(filepath);
             console.log('导入成功,文件已删除');
-            console.log();
         }
-
+        console.log();
     }
 
 
@@ -175,15 +162,5 @@ export class DbShellHelper {
         }
     }
 
-    private checkDatabase() {
-        if (!this.database) {
-            console.log('未指定要操作的数据库');
-            process.exit();
-        }
-    }
 }
 
-interface exportDbOptions {
-    tables?: string | string[];
-    filepath?: string;
-}

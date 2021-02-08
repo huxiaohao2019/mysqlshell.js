@@ -49,3 +49,8 @@ export interface DbExecSqlFileOptions {
     filepath?: string;
     [propName: string]: any;
 }
+
+export interface exportDbOptions {
+    tables?: string | string[];
+    filepath?: string;
+}
