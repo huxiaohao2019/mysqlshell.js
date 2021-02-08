@@ -1,6 +1,6 @@
 import { db01COnfig } from "./appConfig";
 import { DbShellHelper } from '../dist/index'
-import { DbImportOptions, exportDbOptions } from "../dist/interfaces";
+import { DbImportOptions, DbExportOptions } from "../dist/interfaces";
 
 var app = new DbShellHelper();
 app.dbServer = db01COnfig;
@@ -21,7 +21,7 @@ function execString() {
 // execString();
 
 function exportDb() {
-    let options: exportDbOptions = {
+    let options: DbExportOptions = {
         tables: 'tb_demo',
         filepath: `${__dirname}/tb_demo.sql`
     }
