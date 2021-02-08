@@ -1,6 +1,6 @@
 {
   "name": "mysqlshell.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "use shelljs to operate mysql, support javascript/typescript",
   "main": "index.js",
   "scripts": {
@@ -16,10 +16,10 @@
     "shell"
   ],
   "files": [
-    "dist/*.js",
+    "dist/index.js",
     "dist/*.d.ts"
   ],
-  "author": "",
+  "author": "huxiaohao",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/huxiaohao2019/mysqlshell.js/issues"
