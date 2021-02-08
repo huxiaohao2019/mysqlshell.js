@@ -1,6 +1,6 @@
 {
   "name": "mysqlshell.js",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "use shelljs to operate mysql, support javascript/typescript",
   "main": "index.js",
   "scripts": {
