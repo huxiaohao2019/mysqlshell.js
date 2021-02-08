@@ -1,5 +1,5 @@
 import shelljs = require('shelljs');
-import { ConnectionOptions, DbExecSqlFileOptions, DbImportOptions, dbQueryOptions, exportDbOptions } from "./interfaces";
+import { ConnectionOptions, DbExecSqlFileOptions, DbImportOptions, DbExecSqlStringOptions, DbExportOptions } from "./interfaces";
 import fs = require('fs');
 
 /**
@@ -16,10 +16,10 @@ export class DbShellHelper {
     /**
      * 执行sql语句，可传入一条或多条，按顺序执行，以分号分割
      *
-     * @param {dbQueryOptions} options
+     * @param {DbExecSqlStringOptions} options
      * 
      */
-    execSqlString(options: dbQueryOptions) {
+    execSqlString(options: DbExecSqlStringOptions) {
         let { host, port, user, password, database } = this.dbServer;
 
         let prefix = `mysql -h ${host} -P ${port} -u${user} -p${password} -e "use ${database};`;
@@ -74,11 +74,11 @@ export class DbShellHelper {
     /**
      * 导出数据库/数据表
      * 
-     * @param {exportDbOptions} options
+     * @param {DbExportOptions} options
      * @return {*} 
      * @memberof DbShellHelper
      */
-    exportDb(options: exportDbOptions) {
+    exportDb(options: DbExportOptions) {
         let { filepath } = options;
         if (!filepath) {
             console.log('文件路径为空');

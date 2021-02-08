@@ -28,8 +28,14 @@ export interface ConnectionOptions {
 }
 
 
-export interface dbQueryOptions {
+/**
+ *
+ * @export
+ * @interface DbExecSqlStringOptions 执行查询语句选项
+ */
+export interface DbExecSqlStringOptions {
     queryString?: string;
+    [propName: string]: any;
 }
 
 export interface DbExecSqlFileOptions {
@@ -42,7 +48,7 @@ export interface DbImportOptions {
     filepath?: string;
 }
 
-export interface exportDbOptions {
+export interface DbExportOptions {
     tables?: string | string[];
     filepath?: string;
 }
