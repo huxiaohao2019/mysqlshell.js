@@ -37,7 +37,6 @@ export class DbShellHelper {
         shelljs.exec(query);
     }
 
-
     /**
      * 执行sql文件
      *
@@ -63,9 +62,6 @@ export class DbShellHelper {
         let res = shelljs.exec(query);
         console.log(res.stdout);
     }
-
-
-
 
     /**
      * 导出数据库/数据表
@@ -109,7 +105,6 @@ export class DbShellHelper {
         console.log();
     }
 
-
     /**
      * 导入数据库/数据表
      *
@@ -142,8 +137,6 @@ export class DbShellHelper {
         }
         console.log();
     }
-
-
 
     private checkDbServer() {
         if (!this.dbServer) {
