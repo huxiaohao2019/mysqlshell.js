@@ -1,5 +1,6 @@
 # mysqlshell.js
 
+## 使用方法
 ```javascript
 
     import { db01COnfig } from "./appConfig";
