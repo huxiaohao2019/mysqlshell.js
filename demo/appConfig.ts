@@ -1,6 +1,5 @@
-import { ConnectionOptions } from "../dist/interfaces";
-
-export let db01COnfig: ConnectionOptions = {
+import { ConnectionOptions } from '../interfaces'
+export let demoDbConfig: ConnectionOptions = {
     host: '192.168.3.131',
     port: 6520,
     user: 'root',

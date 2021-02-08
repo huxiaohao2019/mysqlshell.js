@@ -2,12 +2,12 @@
 ## 简介
 ## 使用方法
 ```javascript
-    import { db01COnfig } from "./appConfig";
-    import { DbShellHelper } from '../dist/index'
-    import { DbImportOptions, DbExportOptions } from "../dist/interfaces";
+    import { demoDbConfig } from "./appConfig";
+    import { DbShellHelper } from '../index'
+    import { DbImportOptions, DbExportOptions } from "../interfaces";
     
     var app = new DbShellHelper();
-    app.dbServer = db01COnfig;
+    app.dbServer = demoDbConfig;
     
     // exec sql file demo
     function execFile() {
@@ -42,5 +42,5 @@
         }
         app.importSqlFile(options)
     }
-    importDb();    
+    importDb();
 ```
