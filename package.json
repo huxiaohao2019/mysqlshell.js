@@ -16,7 +16,7 @@
     "shell"
   ],
   "files": [
-    "dist/index.js",
+    "dist/*.js",
     "dist/*.d.ts"
   ],
   "author": "huxiaohao",
