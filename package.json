@@ -16,7 +16,7 @@
     "shell"
   ],
   "files": [
-    "dist/*"
+    "dist/"
   ],
   "author": "",
   "license": "ISC",
