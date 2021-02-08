@@ -1,5 +1,5 @@
 {
-  "name": "mysqlshell.js.test",
+  "name": "mysqlshell.js",
   "version": "1.0.0",
   "description": "use shelljs to operate mysql, support javascript/typescript",
   "main": "index.js",
