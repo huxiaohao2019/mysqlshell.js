@@ -30,9 +30,6 @@ export interface ConnectionOptions {
 
 export interface dbQueryOptions {
     queryString?: string;
-    data?: any[];
-    file?: string;
-    filepath?: string;
 }
 
 export interface DbExecSqlFileOptions {

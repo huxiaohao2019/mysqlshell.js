@@ -38,11 +38,13 @@ export class DbShellHelper {
 
     }
 
+
     /**
      * 执行sql文件
      *
-     * @param {dbQueryOptions} options
-     * @memberof DbQueryBase
+     * @param {DbExecSqlFileOptions} options
+     * @return {*} 
+     * @memberof DbShellHelper
      */
     execSqlFile(options: DbExecSqlFileOptions) {
         // this.checkDbServer();
@@ -77,7 +79,6 @@ export class DbShellHelper {
      * @memberof DbShellHelper
      */
     exportDb(options: exportDbOptions) {
-        let { dbServer } = this;
         let { filepath } = options;
         if (!filepath) {
             console.log('文件路径为空');
