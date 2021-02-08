@@ -5,6 +5,7 @@ import { DbImportOptions, DbExportOptions } from "../dist/interfaces";
 var app = new DbShellHelper();
 app.dbServer = db01COnfig;
 
+// exec sql file demo
 function execFile() {
     app.execSqlFile({
         filepath: `${__dirname}/tb_demo.sql`
@@ -12,6 +13,7 @@ function execFile() {
 }
 execFile();
 
+// exec sql string demo
 function execString() {
     app.execSqlString({
         queryString: 'delete from tb_demo;'
@@ -19,6 +21,7 @@ function execString() {
 }
 execString();
 
+// export table demo. if tables is not set, this will export full database;
 function exportDb() {
     let options: DbExportOptions = {
         tables: 'tb_demo',
@@ -28,6 +31,7 @@ function exportDb() {
 }
 exportDb();
 
+// import table demo
 function importDb() {
     let options: DbImportOptions = {
         filepath: `${__dirname}/tb_demo.sql`
@@ -35,4 +39,3 @@ function importDb() {
     app.importSqlFile(options)
 }
 importDb();
-
