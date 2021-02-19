@@ -1,0 +1,2 @@
+npm adduser --registry http://192.168.3.131:4873
+npm publish --registry http://192.168.3.131:4873
